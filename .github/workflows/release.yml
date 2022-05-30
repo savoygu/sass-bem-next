@@ -24,22 +24,20 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
       - name: Publish
-        run: |
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-      - name: Read version
-        id: version
-        uses: ashley-taylor/read-json-property-action@v1.0
+        id: publish
+        uses: JS-DevTools/npm-publish@v1
         with:
-          path: ./package.json
-          property: version
+          token: ${{secrets.NPM_TOKEN}}
+      - name: No Changes
+        if: steps.publish.outputs.type == 'none'
+        run: echo "There are no changes to the version."
       - name: Release
+        if: steps.publish.outputs.type != 'none'
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{secrets.ACCESS_TOKEN}}
         with:
-          tag_name: v${{steps.version.outputs.value}}
-          body: body_v${{steps.version.outputs.value}}
+          tag_name: v${{steps.publish.outputs.version}}
+          body: body_v${{steps.publish.outputs.version}}
           draft: false
           prerelease: false
