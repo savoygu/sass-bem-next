@@ -16,14 +16,15 @@ function test(done) {
 
 function sassdoc(done) {
   src([
-    '_config.scss',
+    './src/_config.scss',
     '_bem.scss',
-    './mixins/**.scss',
-    './helpers/**.scss',
-    './functions/*.scss'
+    './src/mixins/*.scss',
+    './src/helpers/*.scss',
+    './src/functions/*.scss'
   ]).pipe(
     _sassdoc({
-      dest: 'gh-pages',
+      theme: 'default-next',
+      dest: 'docs',
       verbose: true,
       display: {
         access: ['public', 'private'],
