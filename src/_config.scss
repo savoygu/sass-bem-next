@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @use "sass:meta";
 
-@import "../../sass-config/config";
+@import "sass-config/config";
 
 @if not meta.function-exists(config) {
   @error 'sass-config package need to be imported before sass-bem package';
