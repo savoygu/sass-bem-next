@@ -9,17 +9,55 @@
 
 # sass-bem-next
 
-[sass-bem v2.6.5](./README.v2.6.5.md)
+## Changes
 
-## 改动
+- Use dart-sass instead of node-sass
+- Use sass builtin modules instead of global functions
+- Fixed @mixin parse warning
+- Fixed @function splice recursive error
 
-- 使用 dart-sass 替换 node-sass
-- 使用 sass 内置模块替换全局函数
-- 修复 @mixin parse 警告
-- 修复 @function splice recursive 错误
-
-## 安装
+## Install
 
 ```bash
-npm i sass-bem-next --save
+npm i sass-bem-next --save-dev
 ```
+
+Vue CLI
+
+```js
+// vue.config.js
+module.exports = {
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `@import "sass-bem-next/_bem.scss";`
+      }
+    }
+  }
+}
+```
+
+Vite
+
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "sass-bem-next/_bem.scss";`
+      }
+    }
+  }
+})
+```
+
+## Usage
+
+[sass-bem v2.6.5](./README.v2.6.5.md)
+
+## License
+
+The sass-bem-next package is also open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
