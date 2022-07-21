@@ -30,7 +30,7 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        additionalData: `@import "sass-bem-next/_bem.scss";`
+        additionalData: `@import "sass-bem-next";`
       }
     }
   }
@@ -47,7 +47,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "sass-bem-next/_bem.scss";`
+        additionalData: `@import "sass-bem-next";`
       }
     }
   }
