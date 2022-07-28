@@ -42,7 +42,7 @@
 		"gulp": "^4.0.2",
 		"gulp-mocha": "^8.0.0",
 		"mocha": "^10.0.0",
-		"sass": "^1.52.1",
+		"sass": "^1.54.0",
 		"sass-true": "^6.1.0",
 		"sassdoc": "^2.7.4",
 		"sassdoc-theme-default-next": "^3.0.1"
