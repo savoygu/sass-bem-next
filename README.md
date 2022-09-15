@@ -24,6 +24,8 @@ npm i sass-bem-next --save-dev
 
 Vue CLI
 
+v5.x
+
 ```js
 // vue.config.js
 module.exports = {
@@ -31,6 +33,23 @@ module.exports = {
     loaderOptions: {
       scss: {
         additionalData: `@import "sass-bem-next";`
+      }
+    }
+  }
+}
+```
+
+v4.x
+
+```js
+module.exports = {
+  css: {
+    loaderOptions: {
+      scss: {
+        prependData: `@import "sass-bem-next";`,
+        sassOptions: {
+          includePaths: ['node_modules']
+        }
       }
     }
   }
